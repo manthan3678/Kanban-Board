@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+:root {
+  --bg-color: #000;
+  --color: #fff;
+  --bg-task-color: #9f9d9d;
+  --bg-btn-color: #6d6b6b;
+  --nav-padding: 16px 30px;
+  --section-padding: 16px 30px;
+  --delete-btn-color: #b9b7b7;
+
+  --padding-sm: 8px; /* 0.5rem */
+  --padding-md: 16px; /* 1rem   */
+  --padding-lg: 24px; /* 1.5rem */
+  --padding-xl: 32px; /* 2rem   */
+  --padding-2xl: 48px; /* 3rem   */
+  --padding-3xl: 64px; /* 4rem   */
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+  --border-radius-2xl: 24px;
+  --border-radius-3xl: 32px;
+}
+body {
+  background: var(--bg-color);
+  color: var(--color);
+}
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+nav {
+  padding: var(--nav-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav button {
+  background: var(--bg-btn-color);
+  border: none;
+  outline: none;
+  color: var(--color);
+  padding: var(--padding-md) var(--padding-lg);
+  cursor: pointer;
+  border-radius: var(--border-radius-lg);
+}
+section {
+  padding: var(--section-padding);
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--border-radius-3xl);
+}
+section .task-col {
+  background: var(--bg-btn-color);
+  flex-grow: 1;
+  padding: var(--padding-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-md);
+  border-radius: var(--border-radius-md);
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+section .task-col.hover-over {
+  border: 2px dashed var(--color);
+  scale: 1.02;
+}
+section .task-col .heading {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+section .task-col .task {
+  background: var(--bg-task-color);
+  padding: var(--padding-md);
+  border-radius: var(--border-radius-md);
+}
+section .task-col .task .task-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-sm);
+  cursor: grab;
+}
+section .task-col .task button {
+  align-self: flex-end;
+  cursor: pointer;
+  padding: var(--padding-sm) var(--padding-md);
+  border-radius: var(--border-radius-3xl);
+  border: none;
+  outline: none;
+}
+.modal {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal .center {
+  background-color: var(--bg-btn-color);
+  padding: var(--padding-2xl);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-md);
+  z-index: 5;
+}
+.modal .center input,
+.modal .center textarea {
+  border: none;
+  outline: none;
+  background-color: var(--bg-task-color);
+  color: var(--color);
+  padding: var(--padding-md);
+  border-radius: var(--border-radius-sm);
+}
