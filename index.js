@@ -12,6 +12,30 @@ let dragElement = null;
 const tasks = document.querySelectorAll(".task");
 const columns = [todo, progress, done];
 
+// crete/add task elemnt
+function addTaskElement(title, desc, column) {
+  const div = document.createElement("div");
+
+  div.classList.add("task");
+  div.setAttribute("draggable", "true");
+
+  div.innerHTML = `<h2>${title}</h2>
+              <p>${desc}</p>
+              <button>Delete</button>`;
+  column.appendChild(div);
+  div.addEventListener("drag", (e) => {
+    dragElement = div;
+  });
+
+  const deleteBtn = div.querySelector("button");
+  deleteBtn.addEventListener("click", () => {
+    div.remove();
+    updateTasksData();
+  });
+  return div;
+}
+// crete/add task elemnt END
+
 // Initial Local Storage
 if (localStorage.getItem("Tasks")) {
   const data = JSON.parse(localStorage.getItem("Tasks"));
@@ -20,18 +44,7 @@ if (localStorage.getItem("Tasks")) {
     console.log(col, data[col]);
     const column = document.querySelector(`#${col}`);
     data[col].forEach((task) => {
-      const div = document.createElement("div");
-
-      div.classList.add("task");
-      div.setAttribute("draggable", "true");
-
-      div.innerHTML = `<h2>${task.title}</h2>
-              <p>${task.description}</p>
-              <button>Delete</button>`;
-      column.appendChild(div);
-      div.addEventListener("drag", (e) => {
-        dragElement = div;
-      });
+      addTaskElement(task.title, task.description, column);
     });
 
     const tasks = column.querySelectorAll(".task");
@@ -117,21 +130,10 @@ addTaskButton.addEventListener("click", () => {
   const taskTitle = document.querySelector("#task-title-ip").value;
   const taskDesc = document.querySelector("#task-desc-ip").value;
 
-  const div = document.createElement("div");
-
-  div.classList.add("task");
-  div.setAttribute("draggable", "true");
-
-  div.innerHTML = `<h2>${taskTitle}</h2>
-              <p>${taskDesc}</p>
-              <button>Delete</button>`;
-  todo.appendChild(div);
-
+  addTaskElement(taskTitle, taskDesc, todo);
   updateTasksData();
   modal.classList.remove("active");
-
-  div.addEventListener("drag", (e) => {
-    dragElement = div;
-  });
+  document.querySelector("#task-title-ip").value = "";
+  document.querySelector("#task-desc-ip").value = "";
 });
 // Modal Logic End

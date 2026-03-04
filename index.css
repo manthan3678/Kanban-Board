@@ -9,13 +9,18 @@ body {
   width: 100%;
 }
 :root {
-  --bg-color: #000;
-  --color: #fff;
-  --bg-task-color: #9f9d9d;
-  --bg-btn-color: #6d6b6b;
+  --bg-color: #0f0f12; /* main background (deep black) */
+  --color: #f1f1f1; /* main text */
+
+  --bg-btn-color: #1a1a22; /* column background */
+  --bg-task-color: #242430; /* task card background */
+
+  --accent-color: #8b5cf6; /* purple accent */
+  --accent-hover: #7c3aed;
+
+  --delete-btn-color: #ef4444;
   --nav-padding: 16px 30px;
   --section-padding: 16px 30px;
-  --delete-btn-color: #b9b7b7;
 
   --padding-sm: 8px; /* 0.5rem */
   --padding-md: 16px; /* 1rem   */
@@ -45,15 +50,20 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
 }
 nav button {
-  background: var(--bg-btn-color);
+  background: var(--accent-color);
   border: none;
   outline: none;
   color: var(--color);
   padding: var(--padding-md) var(--padding-lg);
   cursor: pointer;
-  border-radius: var(--border-radius-lg);
+  border-radius: var(--border-radius-3xl);
+}
+nav button:hover {
+  background: var(--accent-hover);
 }
 section {
   padding: var(--section-padding);
@@ -65,6 +75,7 @@ section {
 section .task-col {
   background: var(--bg-btn-color);
   flex-grow: 1;
+  width: 100%;
   padding: var(--padding-md);
   display: flex;
   flex-direction: column;
@@ -98,6 +109,8 @@ section .task-col .task button {
   border-radius: var(--border-radius-3xl);
   border: none;
   outline: none;
+  background: var(--delete-btn-color);
+  color: white;
 }
 .modal {
   position: fixed;
