@@ -72,11 +72,11 @@ tasks.forEach((task) => {
 function addDragEventColumn(column) {
   column.addEventListener("dragenter", (e) => {
     e.preventDefault();
-    progress.classList.add("hover-over");
+    column.classList.add("hover-over");
   });
   column.addEventListener("dragleave", (e) => {
     e.preventDefault();
-    progress.classList.remove("hover-over");
+    column.classList.remove("hover-over");
   });
   // itne code likhne se kisi or jgha pr drop kr skte hai
   // drop krne  me help krega
