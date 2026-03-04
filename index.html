@@ -17,15 +17,8 @@
       <section class="board">
         <div id="todo" class="task-col">
           <div class="heading">
-            <div class="left">To DO</div>
+            <div class="left">To Do</div>
             <div class="right">Count</div>
-          </div>
-          <div draggable="true" class="task">
-            <div class="task-title">
-              <h2>Task 1</h2>
-              <p>Descritpion</p>
-              <button>Delete</button>
-            </div>
           </div>
         </div>
         <div id="progress" class="task-col">
@@ -36,7 +29,7 @@
         </div>
         <div id="done" class="task-col">
           <div class="heading">
-            <div class="left">DONE</div>
+            <div class="left">Done</div>
             <div class="right">Count</div>
           </div>
         </div>
@@ -45,8 +38,12 @@
     <div class="modal add-new-task">
       <div class="bg"></div>
       <div class="center">
-        <input type="text" placeholder="Task Title" />
-        <textarea name="" id="" placeholder="Task Descritpion"></textarea>
+        <input id="task-title-ip" type="text" placeholder="Task Title" />
+        <textarea
+          name=""
+          id="task-desc-ip"
+          placeholder="Task Descritpion"
+        ></textarea>
         <button id="add-new-task" class="add-task-btn">Add Task</button>
       </div>
     </div>

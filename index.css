@@ -86,8 +86,6 @@ section .task-col .task {
   background: var(--bg-task-color);
   padding: var(--padding-md);
   border-radius: var(--border-radius-md);
-}
-section .task-col .task .task-title {
   display: flex;
   flex-direction: column;
   gap: var(--padding-sm);
@@ -107,13 +105,23 @@ section .task-col .task button {
   width: 100vw;
   top: 0;
   left: 0;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
+.modal.active {
+  display: flex;
+}
+.modal .bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(245, 245, 220, 0.251);
+  backdrop-filter: blur(5px);
+}
 .modal .center {
   background-color: var(--bg-btn-color);
-  padding: var(--padding-2xl);
+  padding: var(--padding-lg);
   border-radius: var(--border-radius-lg);
   display: flex;
   flex-direction: column;
@@ -128,4 +136,15 @@ section .task-col .task button {
   color: var(--color);
   padding: var(--padding-md);
   border-radius: var(--border-radius-sm);
+}
+.modal .center button {
+  background-color: var(--bg-task-color);
+  border: none;
+  outline: none;
+  color: var(--color);
+  padding: var(--padding-md) var(--padding-lg);
+  border-radius: var(--border-radius-2xl);
+  cursor: pointer;
+  align-self: center;
+  width: fit-content;
 }
